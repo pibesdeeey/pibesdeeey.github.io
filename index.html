@@ -20,49 +20,30 @@
             padding: 0;
         }
         
-    body {
-        min-height: 100vh;
-        background: linear-gradient(135deg, #ffd1dc 0%, #ffaec0 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        color: var(--text);
-        position: relative;
-        overflow-x: hidden;   /* cegah scroll horizontal */
-        overflow-y: hidden;     /* izinkan scroll vertical */
-        font-family: 'Poppins', sans-serif;
-    }
-
-        
-        .confetti {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: var(--dark-pink);
-            opacity: 0.8;
-            z-index: 1;
-            animation: confettiDrop 5s linear infinite;
-        }
-        
-        @keyframes confettiDrop {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(720deg);
-            }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffaec0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
         
         .container {
             width: 100%;
             max-width: 600px;
-            position: relative;
-            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 24px;
             border: 2px solid rgba(255, 255, 255, 0.5);
@@ -71,6 +52,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            margin: 20px;
         }
         
         .card::before {
@@ -128,6 +111,8 @@
             box-shadow: 0 8px 20px rgba(214, 101, 101, 0.25);
             position: relative;
             overflow: hidden;
+            flex: 1;
+            max-width: 120px;
         }
         
         .countdown-item::after {
@@ -186,47 +171,68 @@
         
         /* Responsive adjustments */
         @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                margin: 10px;
+            }
+            
             .card {
-                padding: 30px 20px;
+                padding: 25px 15px;
+                margin: 10px;
             }
             
             .countdown {
-                gap: 10px;
+                gap: 8px;
             }
             
             .countdown-item {
                 min-width: 70px;
-                padding: 15px 10px;
+                padding: 15px 8px;
+                max-width: 80px;
             }
             
             .countdown-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.75rem;
             }
             
             .message {
-                padding: 20px 15px;
+                padding: 15px 12px;
+            }
+            
+            .message p {
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 400px) {
             .countdown-item {
                 min-width: 60px;
+                max-width: 65px;
+                padding: 12px 5px;
             }
             
             .countdown-number {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
             
             .countdown-label {
-                font-size: 0.8rem;
+                font-size: 0.7rem;
+            }
+            
+            .message p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Confetti Container -->
-    <div id="confetti-container"></div>
-    
     <div class="container">
         <div class="card">
             <h1 class="title">Countdown to 24 August!</h1>
@@ -252,55 +258,13 @@
             </div>
             
             <div class="message">
-                <p>selokkjj atau saya hek lokasi anda... serlokj sebelum:</p>
+                <p>serlokkjj atau saya hek lokasi anda... sy bosan keliling soppeng:</p>
                 <p>24 Agustus 2025, 00:00 WITA</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Confetti animation
-        function createConfetti() {
-            const container = document.getElementById('confetti-container');
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            
-            // Random positioning and properties
-            const leftPos = Math.random() * window.innerWidth;
-            const animDuration = (Math.random() * 3) + 3; // 3-6 seconds
-            const size = (Math.random() * 8) + 5; // 5-13px
-            const delay = Math.random() * 5; // 0-5 seconds delay
-            
-            confetti.style.left = `${leftPos}px`;
-            confetti.style.width = `${size}px`;
-            confetti.style.height = `${size}px`;
-            confetti.style.animationDuration = `${animDuration}s`;
-            confetti.style.animationDelay = `${delay}s`;
-            
-            // Random color
-            const colors = ['#ffd1dc', '#ffaec0', '#d66565', '#ff85a2', '#ffffff'];
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            // Random shape
-            const shapes = ['50%', '10%', '0'];
-            confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
-
-            container.appendChild(confetti);
-            
-            // Remove confetti after animation completes
-            setTimeout(() => {
-                confetti.remove();
-            }, (animDuration + delay) * 1000);
-        }
-        
-        // Generate confetti periodically
-        setInterval(createConfetti, 150);
-        
-        // Initial burst of confetti
-        for (let i = 0; i < 30; i++) {
-            setTimeout(createConfetti, i * 100);
-        }
-        
         // Countdown calculation
         function updateCountdown() {
             // Set the target date (August 24, 2025, 00:00 WITA)
