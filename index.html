@@ -22,7 +22,7 @@
         
         html, body {
             height: 100%;
-            overflow: hidden; /* Mencegah scroll */
+            overflow: hidden;
         }
         
         body {
@@ -38,18 +38,6 @@
             margin: 0;
         }
         
-        /* Background dengan rasio 9:16 */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #ffd1dc 0%, #ffaec0 100%);
-            z-index: -1;
-        }
-        
         .container {
             width: 100%;
             max-width: 600px;
@@ -59,7 +47,7 @@
             justify-content: center;
             margin: 0 auto;
             padding: 20px;
-            height: 100%;
+            transform: translateY(-5vh); /* Menaikkan container sedikit ke atas */
         }
         
         .card {
@@ -181,19 +169,11 @@
             font-weight: 600;
         }
         
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 600px) {
             .container {
                 padding: 10px;
+                transform: translateY(-3vh); /* Sedikit lebih kecil untuk mobile */
             }
             
             .card {
@@ -229,6 +209,10 @@
         }
         
         @media (max-width: 400px) {
+            .container {
+                transform: translateY(-2vh); /* Sedikit lebih kecil untuk perangkat kecil */
+            }
+            
             .countdown-item {
                 min-width: 60px;
                 max-width: 65px;
@@ -250,6 +234,10 @@
 
         /* Untuk perangkat dengan tinggi sangat pendek */
         @media (max-height: 700px) {
+            .container {
+                transform: translateY(-2vh); /* Lebih kecil untuk perangkat pendek */
+            }
+            
             .card {
                 padding: 20px 15px;
             }
@@ -269,31 +257,6 @@
             .message {
                 padding: 15px;
                 margin-bottom: 15px;
-            }
-        }
-        
-        /* Untuk perangkat dengan tinggi sangat pendek */
-        @media (max-height: 600px) {
-            .card {
-                padding: 15px 10px;
-            }
-            
-            .countdown-item {
-                padding: 10px 5px;
-                min-width: 60px;
-            }
-            
-            .countdown-number {
-                font-size: 1.7rem;
-            }
-            
-            .message {
-                padding: 10px;
-            }
-            
-            .message p {
-                font-size: 0.9rem;
-                margin-bottom: 8px;
             }
         }
     </style>
