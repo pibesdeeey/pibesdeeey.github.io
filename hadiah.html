@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesan Spesial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --soft-pink: #ffd1dc;
+      --dark-pink: #d66565;
+      --accent-pink: #ff85a2;
+      --text: #5a3d3d;
+      --card-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* cegah scroll */
+    }
+
+    body {
+      background: url(images/background.jpg) no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text);
+      position: relative;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--dark-pink), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 25px 0;
+      border: 2px solid var(--accent-pink); /* garis biasa */
+      position: relative;
+      z-index: 2;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text);
+      text-align: left;
+      position: relative;
+    }
+
+    .message span {
+      opacity: 0;
+      animation: fadeIn 0.1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .options.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .option-btn {
+      background: white;
+      border: 2px solid var(--accent-pink);
+      border-radius: 50px;
+      padding: 12px 25px;
+      color: var(--dark-pink);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(214, 101, 101, 0.2);
+    }
+
+    .option-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(214, 101, 101, 0.3);
+      background: var(--soft-pink);
+      color: white;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: white;
+      border: 2px solid var(--accent-pink);
+      border-radius: 50px;
+      color: var(--dark-pink);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: var(--accent-pink);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .page {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .final-message {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .card { padding: 30px 20px; }
+      .options { gap: 10px; }
+      .option-btn { padding: 10px 20px; font-size: 0.9rem; }
+      .message-container { padding: 20px 15px; }
+    }
+
+    @media (max-width: 400px) {
+      .options {
+        flex-direction: column;
+        align-items: center;
+      }
+      .option-btn { width: 80%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Halaman 1 - Pertanyaan Awal -->
+      <div class="page active" id="page1">
+        <h1 class="title">Pesan</h1>
+
+        <div class="message-container">
+          <p class="message" id="animated-message"></p>
+        </div>
+
+        <div class="options" id="response-options">
+          <button class="option-btn" data-response="sudah">gmau</button>
+          <button class="option-btn" data-response="belum">terserah</button>
+          <button class="option-btn" data-response="gapeduli">gpeduli</button>
+        </div>
+
+        <a href="kalender.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Home
+        </a>
+      </div>
+
+      <!-- Halaman 2 untuk jawaban "sudah" -->
+      <div class="page" id="page-sudah">
+        <h1 class="title">Pesan</h1>
+        <div class="message-container">
+          <p class="message" id="message-sudah"></p>
+        </div>
+        <div class="options" id="options-sudah"></div>
+        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
+      </div>
+
+      <!-- Halaman 2 untuk jawaban "belum" -->
+      <div class="page" id="page-belum">
+        <h1 class="title">Pesan</h1>
+        <div class="message-container">
+          <p class="message" id="message-belum"></p>
+        </div>
+        <div class="options" id="options-belum"></div>
+        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
+      </div>
+
+      <!-- Halaman 2 untuk jawaban "gapeduli" -->
+      <div class="page" id="page-gapeduli">
+        <h1 class="title">Pesan</h1>
+        <div class="message-container">
+          <p class="message" id="message-gapeduli"></p>
+        </div>
+        <div class="options" id="options-gapeduli"></div>
+        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
+      </div>
+
+      <!-- Halaman Final -->
+      <div class="page" id="page-final">
+        <h1 class="title">Pesan</h1>
+        <div class="message-container">
+          <p class="final-message" id="final-message"></p>
+        </div>
+        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questionData = {
+      page1: {
+        message: "Jadii gmanaa? anda mau hadiah apaa,sy bingung mau pilih yang mana,masa iya saya kasi parfume?",
+        options: [
+          { id: "sudah", text: "gmau" },
+          { id: "belum", text: "terserah" },
+          { id: "gapeduli", text: "gpeduli" }
+        ]
+      },
+      sudah: {
+        message: "sy juga gmau, krna kesannya kaya ngembaliin barang..",
+        options: [
+          { id: "senang", text: "y ok" },
+          { id: "biasa", text: "gk" }
+        ]
+      },
+      belum: {
+        message: "okee klo terserah anda lebih suka warna apa",
+        options: [
+          { id: "cepat", text: "pink" },
+          { id: "santai", text: "warna lain" }
+        ]
+      },
+      gapeduli: {
+        message: "apcb gpeduli, oiyaa klo misal anda pilih ini sy mau kasi tau",
+        options: [
+          { id: "yaudah", text: "apa" },
+          { id: "maaf", text: "gmau tau" }
+        ]
+      },
+      final: {
+        senang: "yaudaa klo gtu bilang anda sukanya wangi apa",
+        biasa: "klo pilih ini artinya gmau nolak kan ,klo gtu serlokk",
+        cepat: "yaudaa klo gtu serlokk sekarang",
+        santai: "sy gtau warna lainya apa, tpi intinya serlokk",
+        yaudah: "sebenernya..",
+        maaf: "yauda"
+      }
+    };
+
+    function typeWriter(text, element, speed = 50, callback = null) {
+      let i = 0;
+      element.innerHTML = '';
+      function type() {
+        if (i < text.length) {
+          const charSpan = document.createElement('span');
+          charSpan.textContent = text.charAt(i);
+          element.appendChild(charSpan);
+          i++;
+          setTimeout(type, speed);
+        } else if (callback) {
+          callback();
+        }
+      }
+      type();
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      const targetPage = document.getElementById(`page-${pageId}`);
+      if (targetPage) {
+        targetPage.classList.add('active');
+        if (pageId !== '1' && pageId !== 'final' && questionData[pageId]) {
+          const messageElement = document.getElementById(`message-${pageId}`);
+          const optionsElement = document.getElementById(`options-${pageId}`);
+          messageElement.innerHTML = '';
+          typeWriter(questionData[pageId].message, messageElement, 40, () => {
+            setTimeout(() => { optionsElement.classList.add('visible'); }, 500);
+          });
+          optionsElement.innerHTML = '';
+          optionsElement.classList.remove('visible');
+          questionData[pageId].options.forEach(option => {
+            const button = document.createElement('button');
+            button.className = 'option-btn';
+            button.textContent = option.text;
+            button.setAttribute('data-final', option.id);
+            button.addEventListener('click', () => { showFinalPage(option.id); });
+            optionsElement.appendChild(button);
+          });
+        }
+      }
+    }
+
+    function showFinalPage(responseId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      const finalPage = document.getElementById('page-final');
+      finalPage.classList.add('active');
+      const finalMessageElement = document.getElementById('final-message');
+      finalMessageElement.innerHTML = '';
+      typeWriter(questionData.final[responseId], finalMessageElement, 40);
+    }
+
+    document.querySelectorAll('#response-options .option-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const responseId = this.getAttribute('data-response');
+        showPage(responseId);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        typeWriter(questionData.page1.message, document.getElementById('animated-message'), 40, () => {
+          setTimeout(() => {
+            document.getElementById('response-options').classList.add('visible');
+          }, 500);
+        });
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

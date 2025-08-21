@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color:#fff;
+}
+
+/* Gradient Text */
+.gold-text {
+  background: linear-gradient(to right, #d66565, #ffd1dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card */
+.card-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header {
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.intro-text {
+  text-align:center;
+  margin-bottom:25px;
+  font-size:1.1rem;
+}
+
+/* Reset link style dalam project-item */
+.project-item a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.project-item a:hover {
+  color: #fff; /* tetap putih saat hover */
+}
+
+/* Project Grid */
+.project-list {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+.project-item {
+  background:linear-gradient(to right, #d66565, #ffd1dc);
+  border-radius:12px;
+  overflow:hidden;
+  transition:transform 0.3s;
+}
+
+.project-item:hover {
+  transform:translateY(-5px);
+}
+
+.project-img {
+  position:relative;
+  height:200px;
+  overflow:hidden;
+}
+
+.project-img img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.project-img .overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  color:#ffd1dc;
+  font-size:2rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:0.3s;
+}
+
+.project-img:hover .overlay {
+  opacity:1;
+}
+
+.project-item h3 {
+  font-size:1.1rem;
+  margin:10px;
+}
+
+.project-item p {
+  font-size:0.9rem;
+  margin:0 10px 15px;
+  color:#fff;
+}
+
+/* Responsive Grid */
+@media(min-width:600px){
+  .project-list {grid-template-columns:repeat(2,1fr);}
+}
+
+@media(min-width:1024px){
+  .project-list {grid-template-columns:repeat(3,1fr);}
+}
+
+/* Tombol Home */
+.home-btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(214, 101, 101, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.home-btn:hover {
+  color: rgba(214, 101, 101, 1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project-item {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.project-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}

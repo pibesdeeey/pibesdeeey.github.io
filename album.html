@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="dist/css/album.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="card-container">
+    <header class="page-header">
+      <h1 class="gold-text">Album</h1>
+    </header>
+
+    <p id="intro" class="intro-text" style="color: rgba(214, 101, 101, 0.9);"></p>
+
+    <!-- Project Grid -->
+    <ul class="project-list">
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/zepeto.jpg" alt="Zepeto">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Zepeto</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/hh.jpg" alt="Hotel Hideaway">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Hotel Hideaway</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/eggy.jpg" alt="Eggy Party">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Eggy Party</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/pony.jpg" alt="Pony Town">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Pony Town</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/ff.jpg" alt="Free Fire">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Free Fire</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/sky.jpg" alt="Sky">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Sky</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/ml.jpg" alt="Mobile Legends">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Mobile Legends</h3>
+        </a>
+      </li>
+      <li class="project-item">
+        <a href="https://drive.google.com/drive/folders/1Dymea9xwg08H_Bp2Nh4S2TCUWfGUfspO">
+          <figure class="project-img">
+            <img src="images/mc.jpg" alt="Minecraft">
+            <div class="overlay"><i class="fas fa-eye"></i></div>
+          </figure>
+          <h3>Minecraft</h3>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tombol Home -->
+    <div class="home-btn-container">
+      <a href="kalender.html" class="home-btn">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+<script>
+  // Typewriter untuk intro text
+  const introText = "anda bisa simpen juga foto foto yang sama disini.";
+  const introElement = document.getElementById("intro");
+  let i = 0;
+
+  function typeWriter(callback) {
+    if (i < introText.length) {
+      introElement.textContent += introText.charAt(i);
+      i++;
+      setTimeout(() => typeWriter(callback), 50); // atur speed ketik
+    } else {
+      if (callback) callback(); // setelah selesai ketik, jalankan callback
+    }
+  }
+
+  // Animasi project grid muncul satu per satu
+  function showProjects() {
+    const items = document.querySelectorAll('.project-item');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 300); // jeda antar item
+    });
+  }
+
+  // Jalankan typewriter, lalu setelah selesai jalankan animasi grid
+  typeWriter(showProjects);
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ucapan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+    * { font-family: "Poppins", sans-serif; }
+
+    body {
+      min-height: 100vh;
+      background: url("images/background.jpg") no-repeat center center;
+      background-size: cover;       /* biar tetap penuh layar */
+      background-attachment: fixed; /* biar stay, tidak ikut scroll */
+      background-repeat: no-repeat; /* pastikan tidak tile */
+      background-position: center;  /* tetap center */
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+
+    .gold-text {
+      background: linear-gradient(to right, #d66565, #ffd1dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-left: 4px solid #d66565;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      white-space: pre-wrap; /* ✅ jaga spasi & baris baru */
+    }
+
+    .text-soft-gray { color: rgba(214, 101, 101, 0.9); }
+    .text-softer-gray { color: rgba(214, 101, 101, 0.9); }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(214, 101, 101, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .home-btn:hover {
+      color: rgba(214, 101, 101, 1);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) { .card-container { padding: 30px 20px; } }
+  </style>
+</head>
+<body>
+
+  <div class="card-container text-center">
+    <!-- Foto -->
+    <div class="flex justify-center mb-6">
+      <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-[rgba(255,255,255,0.3)] shadow-lg">
+        <img src="images/pic.jpg" alt="Foto Ulang Tahun" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <!-- Judul -->
+    <h1 class="text-3xl md:text-4xl font-extrabold mb-4 gold-text">Happy 16th<br>Birthday</h1>
+
+    <!-- Ucapan Kedua (animasi huruf demi huruf) -->
+    <div id="ucapan2" class="message-box text-left text-soft-gray leading-relaxed text-base italic"></div>
+
+    <!-- Tombol Home -->
+    <div class="flex justify-center mt-6">
+      <a href="kalender.html" class="home-btn text-softer-gray">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Fungsi ketik huruf demi huruf
+    function typeWriter(el, text, speed = 20) {
+      let i = 0;
+      const timer = setInterval(() => {
+        el.textContent = text.slice(0, i++);
+        if (i > text.length) clearInterval(timer);
+      }, speed);
+    }
+
+    const ucapan2 = document.getElementById('ucapan2');
+    const text2 = `Halllo sayaa Fahri, oiyaa sebelumnya saya kasi tau dulu kenapa sy pasang foto yang ini, yaaa krnaa sy gpunya foto yang lain lagi, adaa si sbenarnya tpi nnti anda marah hhe, klo anda pengin ganti juga boleh ko. 
+
+Saya udah baca semua isi pdf yang pernah anda kasi ke sy, maaf ya klo semisal dlu sikap sm perilaku sy mungkin ada yang ngebuat anda ngerasa ga nyaman, sy akuin emang sy jarang ceritain seusatu ke anda. Tapi kalo misal anda butuh temen cerita, saya bisa ko jadi pembaca yang baik, karena kalo disebut pendengar masa iya saya dengerin chat.
+
+Terlepas dari semua itu akhirnya tiba juga hari ulang tahun anda, sekali lagi selamaat ulang tahun, maaf yaa tahun kemarin saya ga sempet ngucapin, krna tahun kemarin benar benar sangat sibuk, udah gitu pas tanggal 23 - 24 ada acara sampai malam, oiya kalo sy buat ky gini anda males baca kan? yaudaa smpai sini aja, dan juga makasii udah mau jadii temen saya, okee gitu aja hhe.`;
+
+    // Jalankan animasi pada ucapan kedua langsung
+    typeWriter(ucapan2, text2, 60);
+  </script>
+
+</body>
+</html>
