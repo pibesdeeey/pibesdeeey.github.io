@@ -169,6 +169,7 @@
             opacity: 1;
             transform: scale(1);
             transition-delay: 0.5s;
+            z-index: 5; /* Memastikan konten di atas elemen kado */
         }
         
         .btn {
@@ -183,6 +184,8 @@
             transition: all 0.3s ease;
             margin: 10px;
             box-shadow: 0 4px 8px var(--shadow);
+            position: relative; /* Memastikan tombol dapat diklik */
+            z-index: 10; /* Memastikan tombol di atas elemen lain */
         }
         
         .btn:hover {
@@ -304,8 +307,8 @@
     <div class="container">
         <!-- Scene 1: Gift Box -->
         <div id="scene-gift">
-            <h1>Hadiah</h1>
-            <p>Klik gambar kadonyaa</p>
+            <h1>Dan yap</h1>
+            <p>Klik gambar kado untuk memilih hadiah anda</p>
             
             <div class="gift-container">
                 <div class="gift-lid"></div>
@@ -313,8 +316,8 @@
                     <div class="gift-bow"></div>
                 </div>
                 <div class="gift-content">
-                    <h2>Yeyy!</h2>
-                    <p>Jadii pilih apa yang anda mau</p>
+                    <h2>Yyey</h2>
+                    <p>Pilih hadiah yang anda mau</p>
                     <button class="btn" id="open-gift-btn">Lihat Pilihan Hadiah</button>
                 </div>
             </div>
@@ -322,22 +325,22 @@
         
         <!-- Scene 2: Gift Options -->
         <div id="scene-options" class="hidden">
-            <h1>Pilih Hadiah yang anda inginkan</h1>
-            <p>Pilih salah satu hadiah di bawah ini</p>
+            <h1>Pilih salah satu atauu</h1>
+            <p>Anda bisa memilih pilihan ketiga</p>
             
             <div class="options-container">
                 <div class="option-card" data-gift="parfume">
                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNMTYwIDQ4Yy01Mi4yIDAtOTYgNDMuOC05NiA5NnYyNzJjMCA1Mi4yIDQzLjggOTYgOTYgOTZoMTkyYzUyLjIgMCA5Ni00My44IDk2LTk2VjE0NGMwLTUyLjItNDMuOC05Ni05Ni05NkgxNjB6TTIyNCA0MDBjLTMzLjEgMC02MC0yNi45LTYwLTYwczI2LjktNjAgNjAtNjAgNjAgMjYuOSA2MCA2MC0yNi45IDYwLTYwIDYwek0yODggMjI0YzAtMTcuNy0xNC4zLTMyLTMyLTMycy0zMiAxNC4zLTMyIDMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyczMyLTE0LjMgMzItMzJ6TTI0MCA5NmMwLTguOC03LjItMTYtMTYtMTZzLTE2IDcuMi0xNiAxNnYzMmMwIDguOCA3LjIgMTYgMTYgMTZzMTYtNy4yIDE2LTE2Vjk2eiIvPjwvc3ZnPg==" alt="Parfume">
-                    <h3>Parfume</h3>
+                    <h3>Parfume hhe apalgi</h3>
                 </div>
                 
                 <div class="option-card" data-gift="watch">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNNDQ4IDI1NkMwIDMwMS44IDMwMS44IDAgNDQ4IDBjMTQ2LjIgMCAyNjQgMTE3LjggMjY0IDI1NnMtMTE3LjggMjY0LTI2NCAyNjRTMTg0IDQxMi4yIDE4NCAyNTZ6TTQwOCAyODhIMjcyYy04LjggMC0xNi03LjItMTYtMTZWMTEyYzAtOC44IDcuMi0xNiAxNi0xNmgzMmM4LjggMCAxNiA3LjIgMTYgMTZ2MTYwaDMyYzguOCAwIDE2IDcuMiAxNiAxNnYzMmMwIDguOC03LjIgMTYtMTYgMTZ6Ii8+PC9zdmc+" alt="Jam Tangan">
-                    <h3>Jam Tangan</h3>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxs="#ff6b8b"><path d="M448 256C0 301.8 301.8 0 448 0c146.2 0 264 117.8 264 264s-117.8 264-264 264S184 412.2 184 256zM408 288H272c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v160h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16z"/></svg>" alt="Jam Tangan">
+                    <h3>Saya ga yakin anda milih yang ini</h3>
                 </div>
                 
                 <div class="option-card" data-gift="other">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNNDQ4IDIyNGgtODh2LTQ4YzAtMzAuOS0yNS4xLTU2LTU2LTU2aC0zMmMtMzAuOSAwLTU2IDI1LjEtNTYgNTZ2NDhINjRjLTM1LjMgMC02NCAyOC43LTY0IDY0djE5MmMwIDM1LjMgMjguNyA2NCA2NCA2NGgzODRjMzULjMgMCA2NC0yOC43IDY0LTY0VjI4OGMwLTM1LjMtMjguNy02NC02NC02NHptLTIzMi00OGMwLTQuNCAzLjYtOCA4LThoMzJjNC40IDAgOCAzLjYgOCA4djQ4aC00OHYtNDh6bTI3MiAzMDRjMCA4LjgtNy4yIDE2LTE2IDE2SDY0Yy04LjggMC0xNi03LjItMTYtMTZWMjg4YzAtOC44IDcuMi0xNiAxNi0xNmgzODRjOC44IDAgMTYgNy4yIDE2IDE2djE5MnoiLz48L3N2Zz4=" alt="Hadiah Lain">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNNDQ4IDIyNGgtODh2LTQ4YzAtMzAuOS0yNS4xLTU2LTU2LTU2aC0zMmMtMzAuOSAwLTU2IDI1LjEtNTYgNTZ2NDhINjRjLTM1LjMgMC02NCAyOC43LTY0IDY0djE5MmMwIDM1LjMgMjguNyA2NCA2NCA2NGgzODRjMzUuMyAwIDY0LTI4LjcgNjQtNjRWMjg4YzAtMzUuMy0yOC43LTY0LTY0LTY0em0tMjMyLTQ4YzAtNC40IDMuNi04IDgtOGgzMmM0LjQgMCA4IDMuNiA4IDh2NDhoLTQ4di00OHptMjcyIDMwNGMwIDguOC03LjIgMTYtMTYgMTZINjRjLTguOCAwLTE2LTcuMi0xNi0xNlYyODhjMC04LjggNy4yLTE2IDE2LTE2aDM4NGM4LjggMCAxNiA3LjIgMTYgMTZ2MTkyeiIvPjwvc3ZnPg==" alt="Hadiah Lain">
                     <h3>Barang Lain</h3>
                 </div>
             </div>
@@ -349,7 +352,7 @@
             
             <div id="parfume-question1">
                 <div class="message-box">
-                    <p>Saya mkir klo syy ksi inituh kesanya ky sy ngembaliin barang,mau lanjut?</p>
+                    <p>Kesanny ky sy ngembaliin barang,ykin mau lanjut?</p>
                 </div>
                 
                 <button class="btn" data-answer="lorem">iyua</button>
@@ -358,7 +361,7 @@
             
             <div id="parfume-question2" class="hidden">
                 <div class="message-box">
-                    <p>Jadi anda suka yang aromanya apa?</p>
+                    <p>jadii anda suka yang aromanya apa?</p>
                 </div>
                 
                 <button class="btn" data-aroma="manis">Manis</button>
@@ -373,7 +376,7 @@
             
             <div id="parfume-final" class="hidden">
                 <div class="message-box">
-                    <p>Okeeu klo bgitu tngguu</p>
+                    <p>Ooke tnggu hdiah anda segera datangg</p>
                 </div>
                 
                 <button class="btn" id="back-to-options-from-parfume">Kembali ke Pilihan Hadiah</button>
@@ -388,7 +391,7 @@
             
             <div id="watch-question">
                 <div class="message-box">
-                    <p>Warna apa yang anda suka?</p>
+                    <p>wwarna apa yang anda suka?</p>
                 </div>
                 
                 <button class="btn" data-color="pink">Pink</button>
@@ -403,7 +406,7 @@
             
             <div id="watch-final" class="hidden">
                 <div class="message-box">
-                    <p>Okeeu klo bgitu tngguu</p>
+                    <p>Ooke tnggu hdiah anda segera datangg</p>
                 </div>
                 
                 <button class="btn" id="back-to-options-from-watch">Kembali ke Pilihan Hadiah</button>
@@ -418,17 +421,17 @@
             
             <div id="other-question">
                 <div class="message-box">
-                    <p>Pilih atau dipilihin</p>
+                    <p>Jadiii anda mau barang lain apa</p>
                 </div>
                 
-                <button class="btn" data-other="dolor">Pilih</button>
+                <button class="btn" data-other="dolor">Pilih sndiri</button>
                 <button class="btn" data-other="amet">Dipilihin</button>
-                <button class="btn" data-other="ipsum">Hilip</button>
+                <button class="btn" data-other="ipsum">Terserah</button>
             </div>
             
             <div id="other-final" class="hidden">
                 <div class="message-box">
-                    <p>Okeeu klo bgitu tngguu</p>
+                    <p>Ooke tnggu hdiah anda datangg</p>
                 </div>
                 
                 <button class="btn" id="back-to-options-from-other">Kembali ke Pilihan Hadiah</button>
@@ -440,8 +443,8 @@
         <!-- Scene 6: Final Message -->
         <div id="scene-final" class="hidden">
             <div class="message-box">
-                <h2>Yeyy!</h2>
-                <p>Sudahh sy catat,silakan tngguu</p>
+                <h2>Yeyeyey!</h2>
+                <p>Ooke tnggu hdiah anda datangg</p>
             </div>
             
             <button class="btn" id="restart">Pilih Hadiah Lain</button>
@@ -491,11 +494,19 @@
             if (!this.classList.contains('open')) {
                 this.classList.add('open');
                 openGiftBtn.classList.add('bounce');
+                
+                // Set timeout untuk memastikan animasi selesai sebelum tombol bisa diklik
+                setTimeout(() => {
+                    openGiftBtn.style.pointerEvents = 'auto';
+                }, 1000);
             }
         });
         
-        // Navigate to options scene
-        openGiftBtn.addEventListener('click', function() {
+        // Navigate to options scene - PERBAIKAN BUG DI SINI
+        openGiftBtn.addEventListener('click', function(e) {
+            // Mencegah event bubbling yang mungkin menyebabkan masalah
+            e.stopPropagation();
+            
             scenes.gift.classList.add('hidden');
             scenes.options.classList.remove('hidden');
         });
@@ -684,6 +695,9 @@
             otherQuestion.classList.remove('hidden');
             otherFinal.classList.add('hidden');
         }
+        
+        // Inisialisasi - pastikan tombol tidak bisa diklik sebelum kado terbuka
+        openGiftBtn.style.pointerEvents = 'none';
     </script>
 </body>
 </html>
