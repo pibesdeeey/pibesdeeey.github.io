@@ -24,7 +24,6 @@
       padding: 20px;
     }
 
-
     .gold-text {
       background: linear-gradient(to right, #d66565, #ffd1dc);
       -webkit-background-clip: text;
@@ -88,8 +87,33 @@
     <!-- Judul -->
     <h1 class="text-3xl md:text-4xl font-extrabold mb-4 gold-text">Happy 16th<br>Birthday</h1>
 
-    <!-- Ucapan Kedua (animasi huruf demi huruf) -->
-    <div id="ucapan2" class="message-box text-left text-soft-gray leading-relaxed text-base italic"></div>
+    <!-- Ucapan (teks normal, tanpa animasi & tanpa italic) -->
+    <div id="ucapan2" class="message-box text-left text-soft-gray leading-relaxed text-base">
+Halllo sayaa Fahri, oiyaa sebelumnya saya kasi tau dulu kenapa sy pasang foto yang ini, yaaa krnaa sy gpunya foto yang lain lagi, adaa si sbenarnya tpi nnti anda marah hhe, sbenerya foto awal yg sy pakai bukan ini ,tdi pas liat karnaval keinget anda prnah kirimin foto pas masi sd waktu ikut karnaval jdi sy ganti deh, klo anda pengin ganti juga boleh ko. 
+
+Saya udah baca semua isi pdf yang pernah anda kasi ke sy, maaf ya klo semisal dlu sikap sm perilaku sy mungkin ada yang ngebuat anda ngerasa ga nyaman, sy akuin emang sy jarang ceritain seusatu ke anda. Tapi kalo misal x dan y adalah bilangan real positif yang memenuhi persamaan x kuadrat ditambah y kuadrat sama dengan 10 dan x kali y sama dengan 3 nilai dari x pangkat empat ditambah y pangkat empat hasilnya 82 kan?
+
+Terlepas dari semua itu akhirnya tiba juga hari ulang tahun anda, sekali lagi selamaat ulang tahun, maaf yaa tahun kemarin saya ga sempet ngucapin, krna tahun kemarin benar benar sangat sibuk, udah gitu pas tanggal 23 - 24 ada acara sampai malam, oiya kalo sy buat ky gini anda males baca kan? yaudaa smpai sini aja, dan juga makasii udah mau jadii temen saya, okee gitu aja hhe, tpi boong yahhdshaa msi ada lagi.
+
+Soal hadiah bulan kemarin, saya bener bener minta maaaff dlu sebelumnyaa krna masi ngungkit hadiah yang anda kasi ke saya, bukannya saya gsuka, saya sngat amat suka, klo misal disuruh milih ketrima snbt lagi atau dikasi hadiah sm anda, sy lebih milih ketrima snbt, becanda ,sayaa bner bener menghargai effort yang anda ksi ,sy gtau anda belinya mke uang hasil tabungan atau hasil ngepet, sy kan pernah bilang ya "anda ky gni juga ke orang lain?" trus anda jawab iya ,smpe situ sy mikir ouu yauda brrti emang dasarnya anda yg dodol, kayanya klo anda dibandingin ama cici gada bdanya deh, dri segi dodolny krna klo segi imup cici tida tertandingi, tpi sy tettap suka cici walaupun dodol
+
+Ibarat sebuah pidato pasti ada pembuka, isi. penutup ,isi yang sy sampaikan kurang lebih banyak kurangnya, ya krna ini bukan pidato, tpi hal yang bner bner pengin sy smpaiin, sy ga ngelarang anda ngerayain ultah tmen2 anda pkai cara anda sndiri, sy justru mengapresisasi krna jarang2 ada tmen yang sepeduli itu sama hari kelahiran temenya sndiri, itu perbuatan yang keren, sy sangat rispek, sudut pandang tiap orang emang berbeda beda ,tapi dari sudut pandang sy ,sy ini sekarang lagi liatin laptop.
+
+Okee mungkin saya akan menahan malu sambil ketawa sndiri waktu bgian ini, jadii di hari yang sangatt indah ini, hari dimana seorang anak prempuan yang palingg sy benci telah lahir, sy heran deh kenapa isi pdfnya ujaran kebencian, jdi sy balas disini (emot iblis), top five alasan saya membenci ayra :
+
+1.(hidden text)
+2.(hidden text)
+3.(hidden text)
+4.(hidden text)
+5.(hidden text)
+
+Terlalu panjang kalo misal dijelasin ,tpi intinya sy gmau lagi liat anda yang susah payah menabung dan uangnyya dibelikan ssuatu untuk sy, tabung untuk kebutuhann lain, sy lebih suka kalo misal anda rajin menabung, sebenernya dengan adanya chat dri anda di hari ulang tahun sy, itu lebih dari cukup, krna sy gtau apa yang bakal terjadi di masa mendatang apalgi dengan umur sy yang mau memasuki kepala duwa.
+
+Kalo misal ini jadi pemberian terakhir, sy gabakal lupain smua yang udah anda kasi ke sy, sy sangat bersyukur bisa bertemu dan berteman dengan anda, mungkin di lain hari, apacpba sy terllu malu untuk melanjutkanyafgu
+
+INTINNYAA, masa intinya mulu, SELAMATTT ULANG TAHUN SEMOGA PANJANG UMUR DAN TIDAK CENGENG LAGI YHAHAHAHA
+
+    </div>
 
     <!-- Tombol Home -->
     <div class="flex justify-center mt-6">
@@ -100,26 +124,6 @@
     </div>
   </div>
 
-  <script>
-    // Fungsi ketik huruf demi huruf
-    function typeWriter(el, text, speed = 20) {
-      let i = 0;
-      const timer = setInterval(() => {
-        el.textContent = text.slice(0, i++);
-        if (i > text.length) clearInterval(timer);
-      }, speed);
-    }
-
-    const ucapan2 = document.getElementById('ucapan2');
-    const text2 = `Halllo sayaa Fahri, oiyaa sebelumnya saya kasi tau dulu kenapa sy pasang foto yang ini, yaaa krnaa sy gpunya foto yang lain lagi, adaa si sbenarnya tpi nnti anda marah hhe, sbenerya foto awal yg sy pakai bukan ini ,tdi pas liat karnaval keinget anda prnah kirimin foto pas masi sd waktu ikut karnaval jdi sy ganti deh, klo anda pengin ganti juga boleh ko. 
-
-Saya udah baca semua isi pdf yang pernah anda kasi ke sy, maaf ya klo semisal dlu sikap sm perilaku sy mungkin ada yang ngebuat anda ngerasa ga nyaman, sy akuin emang sy jarang ceritain seusatu ke anda. Tapi kalo misal x dan y adalah bilangan real positif yang memenuhi persamaan x kuadrat ditambah y kuadrat sama dengan 10 dan x kali y sama dengan 3 nilai dari x pangkat empat ditambah y pangkat empat hasilnya 82 kan?
-
-Terlepas dari semua itu akhirnya tiba juga hari ulang tahun anda, sekali lagi selamaat ulang tahun, maaf yaa tahun kemarin saya ga sempet ngucapin, krna tahun kemarin benar benar sangat sibuk, udah gitu pas tanggal 23 - 24 ada acara sampai malam, oiya kalo sy buat ky gini anda males baca kan? yaudaa smpai sini aja, dan juga makasii udah mau jadii temen saya, okee gitu aja hhe.`;
-
-    // Jalankan animasi pada ucapan kedua langsung
-    typeWriter(ucapan2, text2, 60);
-  </script>
-
+  <!-- Script animasi dihapus agar teks tampil normal -->
 </body>
 </html>
