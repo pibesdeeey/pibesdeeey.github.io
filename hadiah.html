@@ -1,374 +1,689 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pesan Spesial</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --soft-pink: #ffd1dc;
-      --dark-pink: #d66565;
-      --accent-pink: #ff85a2;
-      --text: #5a3d3d;
-      --card-bg: rgba(255, 255, 255, 0.9);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden; /* cegah scroll */
-    }
-
-    body {
-      background: url(images/background.jpg) no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: var(--text);
-      position: relative;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 600px;
-      position: relative;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .title {
-      font-weight: 800;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      margin-bottom: 20px;
-      background: linear-gradient(to right, var(--dark-pink), var(--accent-pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      z-index: 2;
-    }
-
-    .message-container {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 25px;
-      margin: 25px 0;
-      border: 2px solid var(--accent-pink); /* garis biasa */
-      position: relative;
-      z-index: 2;
-      min-height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .message {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text);
-      text-align: left;
-      position: relative;
-    }
-
-    .message span {
-      opacity: 0;
-      animation: fadeIn 0.1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .options {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-
-    .options.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .option-btn {
-      background: white;
-      border: 2px solid var(--accent-pink);
-      border-radius: 50px;
-      padding: 12px 25px;
-      color: var(--dark-pink);
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(214, 101, 101, 0.2);
-    }
-
-    .option-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(214, 101, 101, 0.3);
-      background: var(--soft-pink);
-      color: white;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 20px;
-      background: white;
-      border: 2px solid var(--accent-pink);
-      border-radius: 50px;
-      color: var(--dark-pink);
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-      cursor: pointer;
-    }
-
-    .back-btn:hover {
-      background: var(--accent-pink);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .page {
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-    }
-
-    .page.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .final-message {
-      text-align: center;
-      font-size: 1.2rem;
-      margin: 20px 0;
-      line-height: 1.6;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .card { padding: 30px 20px; }
-      .options { gap: 10px; }
-      .option-btn { padding: 10px 20px; font-size: 0.9rem; }
-      .message-container { padding: 20px 15px; }
-    }
-
-    @media (max-width: 400px) {
-      .options {
-        flex-direction: column;
-        align-items: center;
-      }
-      .option-btn { width: 80%; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadiah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --soft-pink: #ffd1dc;
+            --medium-pink: #ff9eb5;
+            --dark-pink: #ff6b8b;
+            --light-pink: #ffe8ed;
+            --white: #ffffff;
+            --text: #333333;
+            --shadow: rgba(214, 101, 101, 0.2);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-pink);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px var(--shadow);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .gift-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            cursor: pointer;
+        }
+        
+        .gift-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--soft-pink);
+            border: 4px solid var(--dark-pink);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+            z-index: 2;
+        }
+        
+        .gift-box::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            background-color: var(--dark-pink);
+            border-radius: 5px;
+        }
+        
+        .gift-box::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background-color: var(--dark-pink);
+            border-radius: 5px;
+        }
+        
+        .gift-lid {
+            position: absolute;
+            width: 220px;
+            height: 40px;
+            background-color: var(--medium-pink);
+            border: 4px solid var(--dark-pink);
+            border-radius: 10px;
+            top: -20px;
+            left: -10px;
+            z-index: 3;
+            transition: transform 0.5s ease;
+        }
+        
+        .gift-bow {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--dark-pink);
+            border-radius: 50%;
+            z-index: 4;
+        }
+        
+        .gift-bow::before, .gift-bow::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background-color: var(--dark-pink);
+            border-radius: 10px;
+        }
+        
+        .gift-bow::before {
+            transform: rotate(45deg);
+            top: 10px;
+            left: -10px;
+        }
+        
+        .gift-bow::after {
+            transform: rotate(-45deg);
+            top: 10px;
+            right: -10px;
+        }
+        
+        .open .gift-lid {
+            transform: translateY(-100px) rotate(-10deg);
+            opacity: 0;
+        }
+        
+        .open .gift-box {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        
+        .gift-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        
+        .open .gift-content {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.5s;
+        }
+        
+        .btn {
+            background-color: var(--dark-pink);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        .btn:hover {
+            background-color: var(--medium-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        .btn-secondary {
+            background-color: var(--soft-pink);
+            color: var(--text);
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .option-card {
+            background-color: var(--light-pink);
+            border-radius: 16px;
+            padding: 20px;
+            width: 200px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dark-pink);
+            box-shadow: 0 8px 16px var(--shadow);
+        }
+        
+        .option-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .option-card h3 {
+            color: var(--dark-pink);
+            margin-bottom: 10px;
+        }
+        
+        .message-box {
+            background-color: var(--light-pink);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px dashed var(--dark-pink);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid var(--soft-pink);
+            margin: 10px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .back-btn {
+            background-color: transparent;
+            color: var(--dark-pink);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--soft-pink);
+        }
+        
+        /* Animations */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .bounce {
+            animation: bounce 1s;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .options-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .option-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <!-- Halaman 1 - Pertanyaan Awal -->
-      <div class="page active" id="page1">
-        <h1 class="title">Pesan</h1>
-
-        <div class="message-container">
-          <p class="message" id="animated-message"></p>
+    <div class="container">
+        <!-- Scene 1: Gift Box -->
+        <div id="scene-gift">
+            <h1>Hadiah</h1>
+            <p>Klik gambar kadonyaa</p>
+            
+            <div class="gift-container">
+                <div class="gift-lid"></div>
+                <div class="gift-box">
+                    <div class="gift-bow"></div>
+                </div>
+                <div class="gift-content">
+                    <h2>Yeyy!</h2>
+                    <p>Jadii pilih apa yang anda mau</p>
+                    <button class="btn" id="open-gift-btn">Lihat Pilihan Hadiah</button>
+                </div>
+            </div>
         </div>
-
-        <div class="options" id="response-options">
-          <button class="option-btn" data-response="sudah">gmau</button>
-          <button class="option-btn" data-response="belum">terserah</button>
-          <button class="option-btn" data-response="gapeduli">gpeduli</button>
+        
+        <!-- Scene 2: Gift Options -->
+        <div id="scene-options" class="hidden">
+            <h1>Pilih Hadiah yang anda inginkan</h1>
+            <p>Pilih salah satu hadiah di bawah ini</p>
+            
+            <div class="options-container">
+                <div class="option-card" data-gift="parfume">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNMTYwIDQ4Yy01Mi4yIDAtOTYgNDMuOC05NiA5NnYyNzJjMCA1Mi4yIDQzLjggOTYgOTYgOTZoMTkyYzUyLjIgMCA5Ni00My44IDk2LTk2VjE0NGMwLTUyLjItNDMuOC05Ni05Ni05NkgxNjB6TTIyNCA0MDBjLTMzLjEgMC02MC0yNi45LTYwLTYwczI2LjktNjAgNjAtNjAgNjAgMjYuOSA2MCA2MC0yNi45IDYwLTYwIDYwek0yODggMjI0YzAtMTcuNy0xNC4zLTMyLTMyLTMycy0zMiAxNC4zLTMyIDMyYzAgMTcuNyAxNC4zIDMyIDMyIDMyczMyLTE0LjMgMzItMzJ6TTI0MCA5NmMwLTguOC03LjItMTYtMTYtMTZzLTE2IDcuMi0xNiAxNnYzMmMwIDguOCA3LjIgMTYgMTYgMTZzMTYtNy4yIDE2LTE2Vjk2eiIvPjwvc3ZnPg==" alt="Parfume">
+                    <h3>Parfume</h3>
+                </div>
+                
+                <div class="option-card" data-gift="watch">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNNDQ4IDI1NkMwIDMwMS44IDMwMS44IDAgNDQ4IDBjMTQ2LjIgMCAyNjQgMTE3LjggMjY0IDI1NnMtMTE3LjggMjY0LTI2NCAyNjRTMTg0IDQxMi4yIDE4NCAyNTZ6TTQwOCAyODhIMjcyYy04LjggMC0xNi03LjItMTYtMTZWMTEyYzAtOC44IDcuMi0xNiAxNi0xNmgzMmM4LjggMCAxNiA3LjIgMTYgMTZ2MTYwaDMyYzguOCAwIDE2IDcuMiAxNiAxNnYzMmMwIDguOC03LjIgMTYtMTYgMTZ6Ii8+PC9zdmc+" alt="Jam Tangan">
+                    <h3>Jam Tangan</h3>
+                </div>
+                
+                <div class="option-card" data-gift="other">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZmY2YjhiIj48cGF0aCBkPSJNNDQ4IDIyNGgtODh2LTQ4YzAtMzAuOS0yNS4xLTU2LTU2LTU2aC0zMmMtMzAuOSAwLTU2IDI1LjEtNTYgNTZ2NDhINjRjLTM1LjMgMC02NCAyOC43LTY0IDY0djE5MmMwIDM1LjMgMjguNyA2NCA2NCA2NGgzODRjMzULjMgMCA2NC0yOC43IDY0LTY0VjI4OGMwLTM1LjMtMjguNy02NC02NC02NHptLTIzMi00OGMwLTQuNCAzLjYtOCA4LThoMzJjNC40IDAgOCAzLjYgOCA4djQ4aC00OHYtNDh6bTI3MiAzMDRjMCA4LjgtNy4yIDE2LTE2IDE2SDY0Yy04LjggMC0xNi03LjItMTYtMTZWMjg4YzAtOC44IDcuMi0xNiAxNi0xNmgzODRjOC44IDAgMTYgNy4yIDE2IDE2djE5MnoiLz48L3N2Zz4=" alt="Hadiah Lain">
+                    <h3>Barang Lain</h3>
+                </div>
+            </div>
         </div>
-
-        <a href="kalender.html" class="back-btn">
-          <i class="fas fa-arrow-left"></i> Home
-        </a>
-      </div>
-
-      <!-- Halaman 2 untuk jawaban "sudah" -->
-      <div class="page" id="page-sudah">
-        <h1 class="title">Pesan</h1>
-        <div class="message-container">
-          <p class="message" id="message-sudah"></p>
+        
+        <!-- Scene 3: Parfume Questions -->
+        <div id="scene-parfume" class="hidden">
+            <h1>Pilihan Parfume</h1>
+            
+            <div id="parfume-question1">
+                <div class="message-box">
+                    <p>Saya mkir klo syy ksi inituh kesanya ky sy ngembaliin barang,mau lanjut?</p>
+                </div>
+                
+                <button class="btn" data-answer="lorem">iyua</button>
+                <button class="btn" data-answer="ipsum">gmau</button>
+            </div>
+            
+            <div id="parfume-question2" class="hidden">
+                <div class="message-box">
+                    <p>Jadi anda suka yang aromanya apa?</p>
+                </div>
+                
+                <button class="btn" data-aroma="manis">Manis</button>
+                <button class="btn" data-aroma="seger">Seger</button>
+                <button class="btn" data-aroma="other">Yang lain</button>
+                
+                <div id="aroma-other-input" class="hidden" style="margin-top: 20px;">
+                    <input type="text" class="text-input" placeholder="Masukkan aroma yang diinginkan">
+                    <button class="btn" id="submit-aroma">Submit</button>
+                </div>
+            </div>
+            
+            <div id="parfume-final" class="hidden">
+                <div class="message-box">
+                    <p>Okeeu klo bgitu tngguu</p>
+                </div>
+                
+                <button class="btn" id="back-to-options-from-parfume">Kembali ke Pilihan Hadiah</button>
+            </div>
+            
+            <button class="back-btn" id="back-from-parfume">← Kembali</button>
         </div>
-        <div class="options" id="options-sudah"></div>
-        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
-      </div>
-
-      <!-- Halaman 2 untuk jawaban "belum" -->
-      <div class="page" id="page-belum">
-        <h1 class="title">Pesan</h1>
-        <div class="message-container">
-          <p class="message" id="message-belum"></p>
+        
+        <!-- Scene 4: Watch Questions -->
+        <div id="scene-watch" class="hidden">
+            <h1>Pilihan Jam Tangan</h1>
+            
+            <div id="watch-question">
+                <div class="message-box">
+                    <p>Warna apa yang anda suka?</p>
+                </div>
+                
+                <button class="btn" data-color="pink">Pink</button>
+                <button class="btn" data-color="putih">Putih</button>
+                <button class="btn" data-color="other">Yang lain</button>
+                
+                <div id="color-other-input" class="hidden" style="margin-top: 20px;">
+                    <input type="text" class="text-input" placeholder="Masukkan warna yang diinginkan">
+                    <button class="btn" id="submit-color">Submit</button>
+                </div>
+            </div>
+            
+            <div id="watch-final" class="hidden">
+                <div class="message-box">
+                    <p>Okeeu klo bgitu tngguu</p>
+                </div>
+                
+                <button class="btn" id="back-to-options-from-watch">Kembali ke Pilihan Hadiah</button>
+            </div>
+            
+            <button class="back-btn" id="back-from-watch">← Kembali</button>
         </div>
-        <div class="options" id="options-belum"></div>
-        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
-      </div>
-
-      <!-- Halaman 2 untuk jawaban "gapeduli" -->
-      <div class="page" id="page-gapeduli">
-        <h1 class="title">Pesan</h1>
-        <div class="message-container">
-          <p class="message" id="message-gapeduli"></p>
+        
+        <!-- Scene 5: Other Item Questions -->
+        <div id="scene-other" class="hidden">
+            <h1>Pilihan Barang Lain</h1>
+            
+            <div id="other-question">
+                <div class="message-box">
+                    <p>Pilih atau dipilihin</p>
+                </div>
+                
+                <button class="btn" data-other="dolor">Pilih</button>
+                <button class="btn" data-other="amet">Dipilihin</button>
+                <button class="btn" data-other="ipsum">Hilip</button>
+            </div>
+            
+            <div id="other-final" class="hidden">
+                <div class="message-box">
+                    <p>Okeeu klo bgitu tngguu</p>
+                </div>
+                
+                <button class="btn" id="back-to-options-from-other">Kembali ke Pilihan Hadiah</button>
+            </div>
+            
+            <button class="back-btn" id="back-from-other">← Kembali</button>
         </div>
-        <div class="options" id="options-gapeduli"></div>
-        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
-      </div>
-
-      <!-- Halaman Final -->
-      <div class="page" id="page-final">
-        <h1 class="title">Pesan</h1>
-        <div class="message-container">
-          <p class="final-message" id="final-message"></p>
+        
+        <!-- Scene 6: Final Message -->
+        <div id="scene-final" class="hidden">
+            <div class="message-box">
+                <h2>Yeyy!</h2>
+                <p>Sudahh sy catat,silakan tngguu</p>
+            </div>
+            
+            <button class="btn" id="restart">Pilih Hadiah Lain</button>
         </div>
-        <a href="hadiah.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
-      </div>
     </div>
-  </div>
 
-  <script>
-    const questionData = {
-      page1: {
-        message: "Jadii gmanaa? anda mau hadiah apaa,sy bingung mau pilih yang mana,masa iya saya kasi parfume?",
-        options: [
-          { id: "sudah", text: "gmau" },
-          { id: "belum", text: "terserah" },
-          { id: "gapeduli", text: "gpeduli" }
-        ]
-      },
-      sudah: {
-        message: "sy juga gmau, krna kesannya kaya ngembaliin barang..",
-        options: [
-          { id: "senang", text: "y ok" },
-          { id: "biasa", text: "gk" }
-        ]
-      },
-      belum: {
-        message: "okee klo terserah anda lebih suka warna apa",
-        options: [
-          { id: "cepat", text: "pink" },
-          { id: "santai", text: "warna lain" }
-        ]
-      },
-      gapeduli: {
-        message: "apcb gpeduli, oiyaa klo misal anda pilih ini sy mau kasi tau",
-        options: [
-          { id: "yaudah", text: "apa" },
-          { id: "maaf", text: "gmau tau" }
-        ]
-      },
-      final: {
-        senang: "yaudaa klo gtu bilang anda sukanya wangi apa",
-        biasa: "klo pilih ini artinya gmau nolak kan ,klo gtu serlokk",
-        cepat: "yaudaa klo gtu serlokk sekarang",
-        santai: "sy gtau warna lainya apa, tpi intinya serlokk",
-        yaudah: "sebenernya..",
-        maaf: "yauda"
-      }
-    };
-
-    function typeWriter(text, element, speed = 50, callback = null) {
-      let i = 0;
-      element.innerHTML = '';
-      function type() {
-        if (i < text.length) {
-          const charSpan = document.createElement('span');
-          charSpan.textContent = text.charAt(i);
-          element.appendChild(charSpan);
-          i++;
-          setTimeout(type, speed);
-        } else if (callback) {
-          callback();
+    <script>
+        // Ganti URL berikut dengan URL Web App Anda dari Google Apps Script
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzGm_n7H3AKNCm1RrGYAkMiVfCQlubEJOB48Pcb5TCBeU71KeSiBnABz3oV6tLVVnWV7g/exec';
+        
+        // Fungsi untuk menyimpan data ke Google Sheets
+        async function saveToGoogleSheets(data) {
+            try {
+                const response = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('Data berhasil dikirim:', data);
+                return true;
+            } catch (error) {
+                console.error('Error mengirim data:', error);
+                return false;
+            }
         }
-      }
-      type();
-    }
-
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      const targetPage = document.getElementById(`page-${pageId}`);
-      if (targetPage) {
-        targetPage.classList.add('active');
-        if (pageId !== '1' && pageId !== 'final' && questionData[pageId]) {
-          const messageElement = document.getElementById(`message-${pageId}`);
-          const optionsElement = document.getElementById(`options-${pageId}`);
-          messageElement.innerHTML = '';
-          typeWriter(questionData[pageId].message, messageElement, 40, () => {
-            setTimeout(() => { optionsElement.classList.add('visible'); }, 500);
-          });
-          optionsElement.innerHTML = '';
-          optionsElement.classList.remove('visible');
-          questionData[pageId].options.forEach(option => {
-            const button = document.createElement('button');
-            button.className = 'option-btn';
-            button.textContent = option.text;
-            button.setAttribute('data-final', option.id);
-            button.addEventListener('click', () => { showFinalPage(option.id); });
-            optionsElement.appendChild(button);
-          });
-        }
-      }
-    }
-
-    function showFinalPage(responseId) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      const finalPage = document.getElementById('page-final');
-      finalPage.classList.add('active');
-      const finalMessageElement = document.getElementById('final-message');
-      finalMessageElement.innerHTML = '';
-      typeWriter(questionData.final[responseId], finalMessageElement, 40);
-    }
-
-    document.querySelectorAll('#response-options .option-btn').forEach(button => {
-      button.addEventListener('click', function() {
-        const responseId = this.getAttribute('data-response');
-        showPage(responseId);
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        typeWriter(questionData.page1.message, document.getElementById('animated-message'), 40, () => {
-          setTimeout(() => {
-            document.getElementById('response-options').classList.add('visible');
-          }, 500);
+        
+        // DOM Elements
+        const scenes = {
+            gift: document.getElementById('scene-gift'),
+            options: document.getElementById('scene-options'),
+            parfume: document.getElementById('scene-parfume'),
+            watch: document.getElementById('scene-watch'),
+            other: document.getElementById('scene-other'),
+            final: document.getElementById('scene-final')
+        };
+        
+        const giftContainer = document.querySelector('.gift-container');
+        const openGiftBtn = document.getElementById('open-gift-btn');
+        const optionCards = document.querySelectorAll('.option-card');
+        
+        // Gift opening animation
+        giftContainer.addEventListener('click', function() {
+            if (!this.classList.contains('open')) {
+                this.classList.add('open');
+                openGiftBtn.classList.add('bounce');
+            }
         });
-      }, 1000);
-    });
-  </script>
+        
+        // Navigate to options scene
+        openGiftBtn.addEventListener('click', function() {
+            scenes.gift.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+        });
+        
+        // Handle gift selection
+        optionCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const giftType = this.getAttribute('data-gift');
+                scenes.options.classList.add('hidden');
+                
+                switch(giftType) {
+                    case 'parfume':
+                        scenes.parfume.classList.remove('hidden');
+                        break;
+                    case 'watch':
+                        scenes.watch.classList.remove('hidden');
+                        break;
+                    case 'other':
+                        scenes.other.classList.remove('hidden');
+                        break;
+                }
+                
+                // Simpan pilihan ke Google Sheets
+                saveToGoogleSheets({action: 'selected_gift', gift: giftType});
+            });
+        });
+        
+        // Parfume questions logic
+        const parfumeQuestion1 = document.getElementById('parfume-question1');
+        const parfumeQuestion2 = document.getElementById('parfume-question2');
+        const parfumeFinal = document.getElementById('parfume-final');
+        const aromaOtherInput = document.getElementById('aroma-other-input');
+        
+        document.querySelectorAll('#parfume-question1 .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const answer = this.getAttribute('data-answer');
+                
+                if (answer === 'ipsum') {
+                    parfumeQuestion1.classList.add('hidden');
+                    parfumeQuestion2.classList.remove('hidden');
+                } else {
+                    parfumeQuestion1.classList.add('hidden');
+                    parfumeFinal.classList.remove('hidden');
+                    
+                    // Simpan jawaban ke Google Sheets
+                    saveToGoogleSheets({action: 'parfume_answer', answer: answer});
+                }
+            });
+        });
+        
+        document.querySelectorAll('#parfume-question2 .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const aroma = this.getAttribute('data-aroma');
+                
+                if (aroma === 'other') {
+                    aromaOtherInput.classList.remove('hidden');
+                } else {
+                    parfumeQuestion2.classList.add('hidden');
+                    parfumeFinal.classList.remove('hidden');
+                    
+                    // Simpan pilihan aroma ke Google Sheets
+                    saveToGoogleSheets({action: 'parfume_aroma', aroma: aroma});
+                }
+            });
+        });
+        
+        document.getElementById('submit-aroma').addEventListener('click', function() {
+            const customAroma = document.querySelector('#aroma-other-input .text-input').value;
+            if (customAroma.trim() !== '') {
+                parfumeQuestion2.classList.add('hidden');
+                parfumeFinal.classList.remove('hidden');
+                aromaOtherInput.classList.add('hidden');
+                
+                // Simpan aroma kustom ke Google Sheets
+                saveToGoogleSheets({action: 'parfume_aroma', aroma: 'custom: ' + customAroma});
+            }
+        });
+        
+        // Watch questions logic
+        const watchQuestion = document.getElementById('watch-question');
+        const watchFinal = document.getElementById('watch-final');
+        const colorOtherInput = document.getElementById('color-other-input');
+        
+        document.querySelectorAll('#watch-question .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const color = this.getAttribute('data-color');
+                
+                if (color === 'other') {
+                    colorOtherInput.classList.remove('hidden');
+                } else {
+                    watchQuestion.classList.add('hidden');
+                    watchFinal.classList.remove('hidden');
+                    
+                    // Simpan pilihan warna ke Google Sheets
+                    saveToGoogleSheets({action: 'watch_color', color: color});
+                }
+            });
+        });
+        
+        document.getElementById('submit-color').addEventListener('click', function() {
+            const customColor = document.querySelector('#color-other-input .text-input').value;
+            if (customColor.trim() !== '') {
+                watchQuestion.classList.add('hidden');
+                watchFinal.classList.remove('hidden');
+                colorOtherInput.classList.add('hidden');
+                
+                // Simpan warna kustom ke Google Sheets
+                saveToGoogleSheets({action: 'watch_color', color: 'custom: ' + customColor});
+            }
+        });
+        
+        // Other item questions logic
+        const otherQuestion = document.getElementById('other-question');
+        const otherFinal = document.getElementById('other-final');
+        
+        document.querySelectorAll('#other-question .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const choice = this.getAttribute('data-other');
+                
+                otherQuestion.classList.add('hidden');
+                otherFinal.classList.remove('hidden');
+                
+                // Simpan pilihan ke Google Sheets
+                saveToGoogleSheets({action: 'other_choice', choice: choice});
+            });
+        });
+        
+        // Back buttons logic
+        document.getElementById('back-from-parfume').addEventListener('click', function() {
+            scenes.parfume.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetParfumeQuestions();
+        });
+        
+        document.getElementById('back-from-watch').addEventListener('click', function() {
+            scenes.watch.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetWatchQuestions();
+        });
+        
+        document.getElementById('back-from-other').addEventListener('click', function() {
+            scenes.other.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetOtherQuestions();
+        });
+        
+        document.getElementById('back-to-options-from-parfume').addEventListener('click', function() {
+            scenes.parfume.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetParfumeQuestions();
+        });
+        
+        document.getElementById('back-to-options-from-watch').addEventListener('click', function() {
+            scenes.watch.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetWatchQuestions();
+        });
+        
+        document.getElementById('back-to-options-from-other').addEventListener('click', function() {
+            scenes.other.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+            resetOtherQuestions();
+        });
+        
+        // Restart button
+        document.getElementById('restart').addEventListener('click', function() {
+            scenes.final.classList.add('hidden');
+            scenes.options.classList.remove('hidden');
+        });
+        
+        // Reset functions
+        function resetParfumeQuestions() {
+            parfumeQuestion1.classList.remove('hidden');
+            parfumeQuestion2.classList.add('hidden');
+            parfumeFinal.classList.add('hidden');
+            aromaOtherInput.classList.add('hidden');
+        }
+        
+        function resetWatchQuestions() {
+            watchQuestion.classList.remove('hidden');
+            watchFinal.classList.add('hidden');
+            colorOtherInput.classList.add('hidden');
+        }
+        
+        function resetOtherQuestions() {
+            otherQuestion.classList.remove('hidden');
+            otherFinal.classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
